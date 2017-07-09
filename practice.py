@@ -103,7 +103,7 @@ def repeat_string(content, amount):
 #    "Higher than 0" if higher than zero and "Lower than 0" if lower than zero.
 #    If the integer is zero, print "Zero".
 def print_sign(num): 
-    "Print string based on num"
+    """Print string based on num"""
 
     if num > 0: 
         print "Higher than 0"
@@ -117,7 +117,7 @@ def print_sign(num):
 #    returns a boolean (True or False), depending on whether the number is
 #    evenly divisible by 3.
 def is_divisible_by_three(num): 
-    "Return True if num divisible by three"
+    """Return True if num divisible by three"""
 
     return num % 3 == 0 
 
@@ -125,15 +125,18 @@ def is_divisible_by_three(num):
 # 7. Write a function called 'num_spaces' that takes a sentence as one string
 #    and returns the number of spaces.
 def num_spaces(sentence): 
-    "Return number of spaces in string"
-    
+    """Return number of spaces in string"""
+
     return sentence.count(" ")
 
 # 8. Write a function called 'total_meal_price' that can be passed a meal price
 #    and a tip percentage. It should return the total amount paid
 #    (price + price * tip). **However:** passing in the tip percentage should
 #    be optional; if not given, it should default to 15%.
+def total_meal_price(price, tip = .15):
+    """Return total meal price""" 
 
+    return (price + price * tip)
 
 # 9. Write a function called 'sign_and_parity' that takes an integer as an
 #    argument and returns two pieces of information as strings --- "Positive"
@@ -143,7 +146,23 @@ def num_spaces(sentence):
 #    Then, write code that shows the calling of this function on a number and
 #    unpack what is returned into two variables --- sign and parity (whether
 #    it's even or odd). Print sign and parity.
+def sign_and_parity(number): 
+    """Return list of number sign and parity"""
+    info = []
+    if(number > 0): 
+        info.append('Positive')
+    elif(number < 0): 
+        info.append('Negative')
 
+    if(number % 2 == 0): 
+        info.append('Even')
+    elif(number % 2 == 1): 
+        info.append('Odd')
+
+    return info 
+
+sign, parity = sign_and_parity(3)
+print sign, parity
 
 ###############################################################################
 
@@ -152,6 +171,11 @@ def num_spaces(sentence):
 # 1. Write a function that takes a name and a job title as parameters, making
 #    it so the job title defaults to "Engineer" if a job title is not passed
 #    in. Return the person's title and name in one string.
+def full_title(name, job_title = "Engineer"): 
+    """Concatenate name and job_title"""
+
+    return job_title + " " + name
+
 
 # 2. Given a recipient name & job title and a sender name, print the following
 #    letter:
@@ -161,8 +185,12 @@ def num_spaces(sentence):
 #
 #    Use the function from #1 to construct the full title for the letter's
 #    greeting.
+def write_letter(recipient, job_title, sender): 
+    """Print string with given arguments"""
 
+    print "Dear {} {}, I think you are amazing! Sincerely, {}".format(job_title, recipient, sender)
 
+    
 ###############################################################################
 
 # END OF PRACTICE: You can ignore everything below.
